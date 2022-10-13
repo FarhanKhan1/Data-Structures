@@ -33,19 +33,24 @@ class Linked_List:
         temp = self.head
         temp_temp = temp
         if after:
-            while temp.value != after or temp:
+            while temp!= None:
+                if temp.value == after:
+                    break
                 temp = temp.next
-            new_node = temp.next
+            new_node.next = temp.next
             temp.next = new_node
 
             print(f"This is after condition {temp.value} and {temp_temp.value}")
 
         else:
-            while temp.value != before or temp:
+            while temp !=None:
+                if temp.value == before:
+                    break
                 temp_temp = temp
                 temp = temp.next
             temp_temp.next = new_node
-            new_node = temp_temp
+            new_node.next = temp
+            
             print(f"this is before condition: {temp_temp.value} and {temp.value}")
             
 
@@ -57,4 +62,5 @@ list_.add_end(2)
 list_.add_end(1)
 list_.add_first(6)
 list_.add_between(4.5, None ,2)
+list_.add_between(4.2,4)
 list_.get_data()
